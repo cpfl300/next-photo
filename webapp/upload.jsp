@@ -15,14 +15,14 @@
 </head>
 <body>
 	<h3>사진 업로드하기</h3>
-	
-	<form action="/board" method="post">
+	<div>
+	<form action="/board" method="post" enctype=multipart/form-data>
 		<label for="title"> photo title: </label>
 		<textarea rows="1" cols="30" name="title"></textarea><br>
 		<textarea rows="10" cols="45" name="comment">photo comment</textarea><br>
-		<input type="file" value="파일 선택" name="photo"><br>
+		<input type="file" value="파일 선택" name="file"><br>
 		<input type="submit" value="사진올리기">
 	</form>
-	
+	</div>
 </body>
 </html>
