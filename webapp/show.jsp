@@ -12,6 +12,7 @@ ID: ${certainBoard.id}<br>
 제목: ${certainBoard.title}<br>
 comment: ${certainBoard.comment}<br>
 사진 이름: ${certainBoard.fileName}<br>
+<a href="/">홈으로 가기</a><br>
 <img src="/images/${certainBoard.fileName}" widths = 200, height = 300>
 <br>
 <h3>사진 수정하기</h3>
@@ -24,5 +25,11 @@ comment: ${certainBoard.comment}<br>
 		<input type="submit" value="사진올리기">
 	</form>
 	</div>
+<div>
+	<form action="/board/delete/${certainBoard.id}" method="post">
+	<input type="submit" value="사진삭제">
+	</form>
+</div>	
+
 </body>
 </html>

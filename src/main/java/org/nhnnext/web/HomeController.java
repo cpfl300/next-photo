@@ -46,10 +46,18 @@ public class HomeController {
 		Board certainBoard = boardRepository.save(board);
 		
 		System.out.println("board: " + board);
-		
+				
 //		return "redirect:/board/modify/" + certainBoard.getId();
 		return "redirect:/board/" + certainBoard.getId();
 	}
+	
+	//Data삭제하기 
+	@RequestMapping(value="/delete/{id}", method=RequestMethod.POST)
+	public String delete(@PathVariable Long id){
+		boardRepository.delete(id);
+		return "redirect:/";
+	}
+
 	
 	// DB에서 가져오기
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
