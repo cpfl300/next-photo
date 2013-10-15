@@ -1,6 +1,8 @@
 package org.nhnnext.web;
 
 
+import java.util.Iterator;
+
 import org.nhnnext.repository.Boardrepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,11 +40,13 @@ public class HomeController {
 		return "redirect:/board/" + certainBoard.getId();
 	}
 	
+	//Data수정하기 
 	@RequestMapping(value="/modify/{id}", method=RequestMethod.POST)
 	public String modify(@PathVariable Long id, Board board, MultipartFile file) {
 		boardRepository.delete(id);
 		String fileName = FileUploader.upload(file);
 		board.setFileName(fileName);
+//		board.setId(id);
 		Board certainBoard = boardRepository.save(board);
 		
 		System.out.println("board: " + board);
@@ -59,7 +63,7 @@ public class HomeController {
 	}
 
 	
-	// DB에서 가져오기
+	// 방금 저장한 Date DB에서 가져오기
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public String show(@PathVariable Long id, Model model){
 		Board certainBoard = boardRepository.findOne(id);
@@ -69,4 +73,15 @@ public class HomeController {
 	}
 	
 	
+	// Data 가져오기_List
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	public String list(Model model){
+		
+		Iterable ir = boardRepository.findAll();
+		Iterator it = ir.iterator();
+		model.addAttribute("iterator", it);
+
+		return "list";
+	}
+		
 }

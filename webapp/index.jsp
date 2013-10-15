@@ -8,8 +8,6 @@
 </head>
 <body>
 	<a href="/board/upload">사진 업로드하기</a><br>
-	<a href="/board/upload">사진 보기</a><br>
-	<a href="/board/modification">사진 수정하기</a><br>
-	<a href="/board/upload">사진 삭제</a><br>
+	<a href="/board/list">사진 보기</a><br>
 </body>
 </html>
