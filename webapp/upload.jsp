@@ -14,6 +14,7 @@
 
 </head>
 <body>
+	<a href="/">홈으로 가기</a>
 	<h3>사진 업로드하기</h3>
 	<div>
 	<form action="/board" method="post" enctype=multipart/form-data>

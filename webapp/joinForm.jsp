@@ -7,11 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="/board/upload">사진 업로드하기</a><br>
-	<a href="/board/list">사진 보기</a><br>
-	
-	
-	<a href="/login/form">로그인 하기</a><br>
-	<a href="/join/form">회원 가입하기</a><br>
+
+<h1>회원가입 페이지 입니다~</h1>
+
+<form action="/join" method="post">
+ID 입력: <input type="text" name="userId">
+password: <input type="password" name="password">
+<input type="submit" value="가입하기">
+
+</form>
+
 </body>
 </html>

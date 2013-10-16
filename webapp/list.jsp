@@ -13,14 +13,34 @@
 	<h3>현재 저장된 내용</h3>
 
 	<c:forEach var="data" items="${iterator}">
-		<ul>
-			<li>
+	
 			<br> 제목: ${data.title} <br> 
-				comment:${data.comment} <br> 
+	<c:if test="${not empty data.fileName}">
+				<img src="/images/${data.fileName}" width=200 height=300> <br>
 				사진 이름: ${data.fileName} <br> 
-				<img src="/images/${data.fileName}" widths=200, height=300> <br>
-			</li>
-		</ul>
+	</c:if>
+				comment:${data.comment} <br>
+				 		
+			<div>
+				<form action="/board/delete/${data.id}" method="post">
+				<input type="submit" value="사진삭제">
+				</form>
+			</div>
+			<form action="/board/${data.id}/attachComment" method="post">	
+			
+			<c:forEach items="${data.attachComment}" var="comment">
+			<hr>
+			<c:if test="${not empty comment.id}">
+			댓글 ${comment.id}번
+			${comment.content}
+			</c:if>
+			</c:forEach>
+			<br>
+			<p>댓글을 담겨주세요!</p>
+			<textarea rows="1" cols="30" name="attachComment"></textarea>
+			<input type="submit" value="댓글 달기">
+			</form>
+			<hr>
 	</c:forEach>
 
 
