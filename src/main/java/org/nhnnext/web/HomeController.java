@@ -2,6 +2,9 @@ package org.nhnnext.web;
 
 import java.util.Iterator;
 
+import javax.servlet.http.HttpSession;
+
+import org.h2.engine.Session;
 import org.nhnnext.repository.AttachCommentRepository;
 import org.nhnnext.repository.Boardrepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +29,12 @@ public class HomeController {
 	}
 
 	@RequestMapping("/upload")
-	public String upload() {
-		return "upload";
+	public String upload(HttpSession session) {
+		if(session.getAttribute("userId")!= null){
+			
+			return "upload";
+		}
+		return "redirect:/";
 	}
 
 	// DB에 저장하기
