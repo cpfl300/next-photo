@@ -87,7 +87,7 @@ public class BoardController {
 		Board certainBoard = boardRepository.findOne(id);
 		model.addAttribute("certainBoard", certainBoard);
 
-		return "show";
+		return "show2";
 	}
 
 	// Data 가져오기_List
@@ -97,7 +97,7 @@ public class BoardController {
 		Iterable ir = boardRepository.findAll();
 		model.addAttribute("iterator", ir);
 
-		return "list";
+		return "list2";
 	}
 
 }

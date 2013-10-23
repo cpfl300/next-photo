@@ -1,0 +1,78 @@
+@CHARSET "US-ASCII";
+
+a {
+	text-decoration: blink;
+}
+
+#show_wrap {
+	position: relative;
+	width: 424px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 3px;
+	padding-right: 3px;
+	top: 50px;
+	padding-left: 3px;
+}
+
+#title,#comment {
+	font-family: Ralewqy, Helvetica Neue, Helvetica, Arial, sans-serif;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	font-size: 17px;
+	font-weight: 100;
+}
+
+#comment {
+	text-align: right;
+}
+
+h1 {
+	font-family: Ralewqy, Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-weight: 500;
+	font-size: 1.3em;
+	letter-spacing: 0.1em;
+	text-decoration: overline;
+	text-align: center;
+	color: #f08080;
+}
+
+#image_area,#photo_area {
+	border: 1.5px solid #FF6666;
+}
+
+#image_area {
+	margin: 3px;
+}
+
+#image_area img {
+	max-height: 300px;
+}
+
+#commnets input[type=submit] {
+	background-color: #FF6666;
+	height: 18px;
+	width: 65px;
+	border: none;
+	border-radius: 4px;
+}
+
+#commnets input[type=text] {
+	width: 324px;
+	margin-right: 10px;
+	margin-left: 5px;
+	font-size: 9px;
+	height: 16px;
+	border-radius: 4px;
+	border-width: 1px;
+}
+
+#comments {
+	margin-top: 20px;
+}
+
+span {
+	font-size: 12px;
+}

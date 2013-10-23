@@ -6,28 +6,82 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
+<style>
+a{
+text-decoration: blink;}
+
+#main_wrap {
+	position: relative;
+	background-image: url("/images/gateImage.jpg");
+	background-repeat: no-repeat;
+	height: 400px;
+	width: 410px;
+	background-size: 450px;
+	background-position-x: center;
+	margin-left: auto;
+	margin-right: auto;
+	top: 50px;
+}
+
+#main_gate>h1 {
+	font-size: 80px;
+	font-weight: 200;
+	font-family: Ralewqy, Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-weight: 200;
+}
+
+#main_gate>h1:nth-of-type(1) {
+	position: absolute;
+	top: 52px;
+}
+
+#main_gate>h1:nth-of-type(2) {
+	position: absolute;
+	top: 157px;
+	right: 12px;
+}
+
+#main_button li {
+	float: left;
+	display: block;
+/* 	margin-right: 25px; */
+	margin-left: 35px;
+}
+
+#main_button {
+	position: absolute;
+	bottom: 10px;
+	left: -45px;
+}
+</style>
+
 </head>
 <body>
-	<a href="/board/upload">사진 업로드하기</a>
-	<br>
-	<a href="/board/list">사진 보기</a>
-	<br>
+	<div id="main_wrap">
+		<div id="main_gate">
+			<h1>NEXT</h1>
+			<h1>PHOTO</h1>
+		</div>
 
+		<div id="main_button">
+			<ul>
+				<li><a href="/board/list">LIST</a></li>
+				<c:choose>
+					<c:when test="${not empty sessionScope.userId}">
+						<li><a href="/board/upload">UPLOAD</a></li>
+						<li><a href="/login/logout">LOGOUT</a></li>
 
+					</c:when>
 
-	<c:choose>
-		<c:when test="${not empty sessionScope.userId}">
-			<a href="/login/logout">로그아웃 하기</a>
-			<br>
-		</c:when>
+					<c:otherwise>
+						<li><a href="/login/form">LOGIN</a></li>
 
-		<c:otherwise>
-			<a href="/login/form">로그인 하기</a>
-			<br>
-		</c:otherwise>
-	</c:choose>
-
-	<a href="/join/form">회원 가입하기</a>
-	<br>
+					</c:otherwise>
+				</c:choose>
+				<li><a href="/join/form">JOINUS</a></li>
+			</ul>
+		</div>
+	</div>
 </body>
 </html>

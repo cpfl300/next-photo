@@ -23,11 +23,9 @@ public class AttachCommentController {
 		AttachComment comment = new AttachComment(attachComment, board);
 		attachRepository.save(comment);
 		
-//		Iterable coments = attachRepository.findAll();
-//		model.addAttribute(coments);
 		
 		return "redirect:/board/list";
-//		return "list";
+//		return "redirect:/board/{id}";
 	}
 
 }

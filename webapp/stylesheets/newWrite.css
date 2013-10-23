@@ -8,6 +8,9 @@
 	ul,ol{list-style:none}
 	em,address{font-style:normal} a{text-decoration:none} a:hover,a:active,a:focus{text-decoration:underline}
 	
+	a{
+	text-decoration: blink;}
+	
 	h1, textarea{color: skyblue;}
 	h1{
 		font-family: Ralewqy, Helvetica Neue, Helvetica,Arial,sans-serif;
@@ -23,11 +26,13 @@
 	}
 	
 	div#wrap{
+		position: relative;
 		width : 424px;
-		border : 1.5px solid #f66;
+		border : 1.5px solid #4374D9;
 		margin-right : auto;
 		margin-left : auto;
 		padding : 10px;
+		top: 50px;
 	}
 	#formArea textarea{
 		padding : 8px;
@@ -45,7 +50,7 @@
 	
 	#formArea input[type = submit], input[type = reset]{
 		margin-top : 10px;
-		background-color : #f66;
+		background-color : #4374D9;
 		height: 18px;
 		width: 65px;
 		border: none;
