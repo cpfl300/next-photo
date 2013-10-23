@@ -25,8 +25,6 @@
 			<a href="/login/form">로그인 하기</a>
 			<br>
 		</c:otherwise>
-
-
 	</c:choose>
 
 	<a href="/join/form">회원 가입하기</a>

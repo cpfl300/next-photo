@@ -1,0 +1,58 @@
+@CHARSET "US-ASCII";
+
+/* System Name, CSS Version_Creater_Date */
+	/* Common */ 
+	body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textare a,button,select{margin:0;padding:0}
+	body,input,textarea,select,button,table{font-family:'돋움',Dotum,AppleGothic,sans- serif;font-size:1em}
+	img,fieldset{border:0}
+	ul,ol{list-style:none}
+	em,address{font-style:normal} a{text-decoration:none} a:hover,a:active,a:focus{text-decoration:underline}
+	
+	h1, textarea{color: skyblue;}
+	h1{
+		font-family: Ralewqy, Helvetica Neue, Helvetica,Arial,sans-serif;
+		font-weight: 500;
+		font-size: 1.3em;
+		letter-spacing: 0.1em;
+		text-decoration: overline;
+		text-align: center;
+		}
+		
+	header{
+		margin-bottom: 40px;
+	}
+	
+	div#wrap{
+		width : 424px;
+		border : 1.5px solid #f66;
+		margin-right : auto;
+		margin-left : auto;
+		padding : 10px;
+	}
+	#formArea textarea{
+		padding : 8px;
+		margin-top : 10px;
+		margin-bottom : 10px;
+		width : 405px;
+		font-weight : 100;
+		resize : none;
+	}	
+	
+	#formArea input[type = text]{
+		width: 333px;
+		height : 23px;
+	}
+	
+	#formArea input[type = submit], input[type = reset]{
+		margin-top : 10px;
+		background-color : #f66;
+		height: 18px;
+		width: 65px;
+		border: none;
+		border-radius: 4px;
+	}
+	
+	input{
+		font-size : 10px;
+	}
+	
