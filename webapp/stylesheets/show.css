@@ -49,6 +49,7 @@ h1 {
 
 #image_area img {
 	max-height: 300px;
+	max-width: 413px;
 }
 
 #commnets input[type=submit] {

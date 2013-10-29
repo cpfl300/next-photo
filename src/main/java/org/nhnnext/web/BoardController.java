@@ -31,6 +31,14 @@ public class BoardController {
 		}
 		return "redirect:/";
 	}
+	
+	// 수정할 form 호출 
+	@RequestMapping("callModify/{id}")
+	public String callModify(@PathVariable Long id, Model model){
+		Board certainBoard = boardRepository.findOne(id);
+		model.addAttribute("certainBoard", certainBoard);
+		return "/modify";
+	}
 
 	// DB에 저장하기
 	@RequestMapping(value = "", method = RequestMethod.POST)

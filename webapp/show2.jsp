@@ -7,10 +7,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" media="screen" type="text/css" href="/stylesheets/show.css">
+<style>
+#photoDel, #photoModi{
+	display: inline-block; 
+	margin-top: 12px;
+}
+
+#href>a:nth-of-type(1){
+	margin-right: 10px;
+}
+</style>
+
 </head>
 <body>
 	<div id="show_wrap">
-		<a href="/">HOME</a> <br>
+	<div id = "href">
+		<a href="/">HOME</a>
+		<a href="/board/list">LIST</a> <br>
+	</div>
 		<h1>NEW POST!</h1>
 		<div id="photo_area">
 			<div id="title">${certainBoard.title}</div>
@@ -39,19 +53,27 @@
 				<!-- <textarea rows="1" cols="30" name="attachComment"></textarea> -->
 				<input type="submit" value="댓글 달기">
 			</form>
-		</div>
-	</div>
-
-
-
-
-
-
-
-	<%-- 	<div>
+	<div id = "photoDel">
 		<form action="/board/delete/${certainBoard.id}" method="post">
 			<input type="submit" value="사진삭제">
 		</form>
-	</div> --%>
+	</div> 
+	
+	<div id = "photoModi">
+		<form action="/board/callModify/${certainBoard.id}">
+			<input type="submit" value="사진 수정">
+		</form>
+	</div> 
+	
+	
+
+
+
+
+
+
+
+		</div>
+	</div>
 </body>
 </html>

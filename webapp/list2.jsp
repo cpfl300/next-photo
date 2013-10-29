@@ -7,6 +7,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" media="screen" type="text/css"
+	href="/stylesheets/newWrite.css">
+<link rel="stylesheet" media="screen" type="text/css"
 	href="/stylesheets/show.css">
 <style>
 #list_wrap {
@@ -21,6 +23,22 @@
 	top: 50px;
 	padding-left: 3px;
 }
+
+/* upload수정 */
+h2 {
+	font-size: 16px;
+	margin-top: 28px;
+	margin-bottom: 13px;
+	color: #f08080;
+}
+
+#formArea textarea {
+	height: 70px;
+}
+
+#formArea input[type=submit],input[type=reset] {
+	background-color: #FF6666;
+}
 </style>
 </head>
 <body>
@@ -28,19 +46,36 @@
 		<a href="/">HOME</a>
 		<h1>PHOTO LIST</h1>
 
+		<h2>QUICK UPLOAD</h2>
+
+		<div id="formArea">
+			<form action="/board" method="post" enctype=multipart/form-data>
+				<label for="title"> photo title: </label> <input type="text"
+					placeholder="photo title" name="title"><br>
+				<textarea rows="10" cols="45" name="comment"
+					placeholder="photo comment"></textarea>
+				<br> <input type="file" value="파일 선택" name="file"><br>
+				<input type="reset" value="내용지우기"> <input type="submit"
+					value="사진올리기">
+			</form>
+		</div>
+
+		<!-- 	LIST화면 -->
+
 		<c:forEach var="data" items="${iterator}">
 
 			<div id="show_wrap">
-				<div id="photo_area">
-					<div id="title">${data.title}</div>
-					<c:if test="${not empty data.fileName}">
-						<div id="image_area">
-							<img src="/images/${data.fileName}">
-						</div>
-					</c:if>
-					<div id="comment">${data.comment}</div>
-				</div>
-
+					<div id="photo_area">
+				<a href="/board/${data.id}">
+						<div id="title">${data.title}</div>
+				</a>
+						<c:if test="${not empty data.fileName}">
+							<div id="image_area">
+								<img src="/images/${data.fileName}">
+							</div>
+						</c:if>
+						<div id="comment">${data.comment}</div>
+					</div>
 				<hr>
 				<!-- 여기서부터 댓글 -->
 				<div id="commnets">
@@ -61,9 +96,9 @@
 					<br>
 				</div>
 			</div>
-	</div>
-	</c:forEach>
+		</c:forEach>
 
+	</div>
 
 
 
