@@ -46,6 +46,7 @@
 	#formArea input[type = text]{
 		width: 333px;
 		height : 23px;
+		text-indent: 5px;
 	}
 	
 	#formArea input[type = submit], input[type = reset]{

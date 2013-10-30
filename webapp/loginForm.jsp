@@ -58,7 +58,7 @@ a{
 		<form action="/login" method="post">
 			<input type="text" name="userId" placeholder="ID를 입력하세"><br> 
 			<input type="password" name="password" placeholder="password를 입력하세요"><br> 
-			<input type="submit" value="가입하기">
+			<input type="submit" value="LOGIN">
 		</form>
 	</div>
 </div>

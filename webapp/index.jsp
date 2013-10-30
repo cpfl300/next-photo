@@ -21,7 +21,6 @@ text-decoration: blink;}
 	background-position-x: center;
 	margin-left: auto;
 	margin-right: auto;
-	top: 20px;
 }
 
 #main_gate>h1 {
