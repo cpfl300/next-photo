@@ -42,10 +42,17 @@
 		counter.addEventListener('click',toggleComments, false);
 	}
 	
+	function contactCSS(target, string){
+		var style = window.getComputedStyle(target);
+		var attribute = style.getPropertyValue(string);
+		
+		return attribute;
+}
+	
 	function toggleComments(e){
 		var target = document.getElementById("commentsArea");
-		var style = window.getComputedStyle(target);
-		var display = style.getPropertyValue('display');
+
+		var display = contactCSS(target, 'display');
 		
 		if(display == "none"){
 			
@@ -97,7 +104,6 @@
 			<form action="/board/${certainBoard.id}/attachComment" method="post">
 				<input type="text" placeholder="댓글은 이곳에 적어주세요......"
 					name="attachComment">
-				<!-- <textarea rows="1" cols="30" name="attachComment"></textarea> -->
 				<input type="submit" value="댓글 달기">
 			</form>
 			<div id="photoDel">

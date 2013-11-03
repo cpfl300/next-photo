@@ -6,8 +6,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" media="screen" type="text/css" href="/stylesheets/newWrite.css">
-<link rel="stylesheet" media="screen" type="text/css" href="/stylesheets/show.css">
+<link rel="stylesheet" media="screen" type="text/css"
+	href="/stylesheets/newWrite.css">
+<link rel="stylesheet" media="screen" type="text/css"
+	href="/stylesheets/show.css">
 <style>
 #list_wrap {
 	position: relative;
@@ -51,57 +53,61 @@ div.commentCounter {
 </style>
 
 <script>
-	function initPage(){
+	function initPage() {
 		console.log('로딩이 됐슈');
 		countComments();
-//		alert('로딩이 됐슈');
+		//		alert('로딩이 됐슈');
 
 		registerEvents();
 	}
-	
-	function countComments(){
+
+	function countComments() {
 		var comments = document.querySelectorAll('#commnets');
-		for(var i = 0 ; i < comments.length; i++) {
+		for ( var i = 0; i < comments.length; i++) {
 			var currentNode = comments[i];
 			var nPListCount = currentNode.querySelectorAll('span').length;
 			console.log(nPListCount);
-			
+
 			var comCounter = document.getElementsByClassName("commentCounter");
 			comCounter[i].firstChild.nodeValue = nPListCount + "개의 댓글이 있습니다";
 		}
-		
+
 	}
-	
-	function registerEvents () {
+
+	function registerEvents() {
 		var counter = document.getElementsByClassName("commentCounter");
 		var comments = document.querySelectorAll('#commnets');
-		for(var i = 0 ; i < comments.length; i++) {
-			counter[i].addEventListener('click',toggleComments, false);
+		for ( var i = 0; i < comments.length; i++) {
+			counter[i].addEventListener('click', toggleComments, false);
 		}
 	}
 	
-	function toggleComments(e){
-	//	debugger;
+	function contactCSS(target, string){
+			var style = window.getComputedStyle(target);
+			var attribute = style.getPropertyValue(string);
+			
+			return attribute;
+	}
+
+	function toggleComments(e) {
+		//	debugger;
 		var finded = e.currentTarget;
 		var target = finded.nextElementSibling.firstElementChild;
-		console.log(target);
-		var style = window.getComputedStyle(target);
-		var display = style.getPropertyValue('display');
-		
-		
-		if(display != "inline"){
-			
+
+		var display = contactCSS(target, 'display');
+
+		if (display != "inline") {
+
 			target.style.display = "inline";
 		}
-		
-		else{
+
+		else {
 			target.style.display = "none";
 		}
-		
+		//e.returnValue = false;
 	}
-	 
-	window.onload = initPage; //함수를 기억만 하고 있음.. initPage();라고 하면 바로 실행 될 수 있음
 
+	window.onload = initPage; //함수를 기억만 하고 있음.. initPage();라고 하면 바로 실행 될 수 있음
 </script>
 
 </head>
@@ -114,10 +120,11 @@ div.commentCounter {
 
 		<div id="formArea">
 			<form action="/board" method="post" enctype=multipart/form-data>
-				<label for="title"> photo title: </label> 
-				<input type="text" placeholder="photo title" name="title"><br>
-				<textarea rows="10" cols="45" name="comment" placeholder="photo comment"></textarea><br> 
-				<input type="file" value="파일 선택" name="file"><br>
+				<label for="title"> photo title: </label> <input type="text"
+					placeholder="photo title" name="title"><br>
+				<textarea rows="10" cols="45" name="comment"
+					placeholder="photo comment"></textarea>
+				<br> <input type="file" value="파일 선택" name="file"><br>
 				<input type="reset" value="내용지우기"> <input type="submit"
 					value="사진올리기">
 			</form>
@@ -128,47 +135,45 @@ div.commentCounter {
 		<c:forEach var="data" items="${iterator}">
 
 			<div id="show_wrap">
-					<div id="photo_area">
-				<a href="/board/${data.id}">
+				<div id="photo_area">
+					<a href="/board/${data.id}">
 						<div id="title">${data.title}</div>
-				</a>
-						<c:if test="${not empty data.fileName}">
-							<div id="image_area">
-				<a href="/board/${data.id}">
-				<div id ="image">
-								<img src="/images/${data.fileName}">
-				</a>
+					</a>
+					<c:if test="${not empty data.fileName}">
+						<div id="image_area">
+							<a href="/board/${data.id}">
+								<div id="image">
+									<img src="/images/${data.fileName}">
+							</a>
+						</div>
 				</div>
-							</div>
-						</c:if>
-						<div id="comment">${data.comment}</div>
-					</div>
-					
-				<hr>
-				<!-- 여기서부터 댓글 -->
-				<div class = "commentCounter">test</div>
-				<div id="commnets">
-				<div id="commentsArea">
-				<c:forEach items="${data.attachComment}" var="comment">
-					<c:if test="${not empty comment.id}">
-						<span>${comment.content}</span>
-						<br>
-					</c:if>
-					
-				</c:forEach>
-				<hr>
-				</div>
-					<form action="/board/${certainBoard.id}/attachComment" method="post">
-				
-				<input type="text" placeholder="댓글은 이곳에 적어주세요......" name="attachComment">
-				<input type="submit" value="댓글 달기">
-			</form>
-					<br>
-				</div>
-				
-				
+				</c:if>
+				<div id="comment">${data.comment}</div>
 			</div>
-		</c:forEach>
+
+			<hr>
+			<!-- 여기서부터 댓글 -->
+			<div class="commentCounter">test</div>
+			<div id="commnets">
+				<div id="commentsArea">
+					<c:forEach items="${data.attachComment}" var="comment">
+						<c:if test="${not empty comment.id}">
+							<span>${comment.content}</span>
+							<br>
+						</c:if>
+
+					</c:forEach>
+					<hr>
+				</div>
+				<form action="/board/${data.id}/attachComment" method="post">
+
+					<input type="text" placeholder="댓글은 이곳에 적어주세요......"
+						name="attachComment"> <input type="submit" value="댓글 달기">
+				</form>
+				<br>
+			</div>
+	</div>
+	</c:forEach>
 
 	</div>
 
