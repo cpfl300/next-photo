@@ -1,0 +1,46 @@
+@CHARSET "US-ASCII";
+a{
+text-decoration: blink;}
+
+#main_wrap {
+	position: relative;
+	background-image: url("/images/gateImage.jpg");
+	background-repeat: no-repeat;
+	height: 400px;
+	width: 410px;
+	background-size: 450px;
+	background-position-x: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#main_gate>h1 {
+	font-size: 80px;
+	font-weight: 200;
+	font-family: Ralewqy, Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-weight: 200;
+}
+
+#main_gate>h1:nth-of-type(1) {
+	position: absolute;
+	top: 52px;
+}
+
+#main_gate>h1:nth-of-type(2) {
+	position: absolute;
+	top: 157px;
+	right: 12px;
+}
+
+#main_button li {
+	float: left;
+	display: block;
+/* 	margin-right: 25px; */
+	margin-left: 35px;
+}
+
+#main_button {
+	position: absolute;
+	bottom: 10px;
+	left: -45px;
+}

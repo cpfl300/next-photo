@@ -6,47 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
-<style>
-	h1 {
-	text-align: center;
-}
-
-#loginForm{
-	margin-top: 20px;
-	text-align: center;
-}
-
-input[type=text], input[type=password]{
-	width: 300px;
-	text-align: center;
-	margin-bottom: 10px;
-}
-
-input[type=submit]{
-	margin-top: 5px;
-	font-size: 10px;
-	width: 90px;
-}
-
-#login_warp{
-	position: relative;
-	width: 424px;
-	margin-right: auto;
-	margin-left: auto;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	padding-left: 3px;
-	padding-right: 3px;
-	top: 50px;
-	padding-left: 3px;
-	border: 1.5px solid #FFFF5A;
-}
-
-a{
-	text-decoration: blink;
-}
-		
-</style>
+<link rel="stylesheet" media="screen" type="text/css" href="/stylesheets/login.css"> 
 
 </head>
 <body>

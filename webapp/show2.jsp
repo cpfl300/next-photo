@@ -8,27 +8,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" media="screen" type="text/css"
 	href="/stylesheets/show.css">
-<style>
-#photoDel,#photoModi {
-	display: inline-block;
-	margin-top: 12px;
-}
 
-#href>a:nth-of-type(1) {
-	margin-right: 10px;
-}
-
-#commentCounter {
-	text-align: right;
-	margin-right: 10px;
-	font-size: 8.5px;
-	margin-bottom: 10px;
-}
-
-#commentsArea {
-	display: none;
-}
-</style>
 <Script>
 	function loading() {
 		var count = document.querySelectorAll('span').length;

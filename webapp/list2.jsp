@@ -10,47 +10,7 @@
 	href="/stylesheets/newWrite.css">
 <link rel="stylesheet" media="screen" type="text/css"
 	href="/stylesheets/show.css">
-<style>
-#list_wrap {
-	position: relative;
-	width: 424px;
-	margin-right: auto;
-	margin-left: auto;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	padding-left: 3px;
-	padding-right: 3px;
-	top: 50px;
-	padding-left: 3px;
-}
-
-/* upload수정 */
-h2 {
-	font-size: 16px;
-	margin-top: 28px;
-	margin-bottom: 13px;
-	color: #f08080;
-}
-
-#formArea textarea {
-	height: 70px;
-}
-
-#formArea input[type=submit],input[type=reset] {
-	background-color: #FF6666;
-}
-
-div.commentCounter {
-	text-align: right;
-	margin-right: 10px;
-	font-size: 8.5px;
-	margin-bottom: 10px;
-}
-
-#commentsArea {
-	display: none;
-}
-</style>
+<link rel="stylesheet" media="screen" type="text/css" href="/stylesheets/list.css">
 
 <script>
 	function initPage() {
