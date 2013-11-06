@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
@@ -50,6 +51,15 @@ public class BoardController {
 		System.out.println("board: " + board);
 
 		return "redirect:/board/" + certainBoard.getId();
+	}
+	
+	@RequestMapping(value ="/board.json", method = RequestMethod.POST)
+	public @ResponseBody Board straightUpload(Board board, MultipartFile file){
+		String fileName = FileUploader.upload(file);
+		board.setFileName(fileName);
+		System.out.println("/board/board.json으로 들어왔습니다.");
+		return boardRepository.save(board);
+		
 	}
 
 	// Data수정하기
