@@ -1,6 +1,8 @@
 package org.nhnnext.web;
 
 import java.util.Iterator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpSession;
 
@@ -19,6 +21,8 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 @RequestMapping("/board")
 public class BoardController {
+	private static final Logger log = LoggerFactory.getLogger(BoardController.class);
+	
 	@Autowired
 	private Boardrepository boardRepository;
 	@Autowired
@@ -44,6 +48,7 @@ public class BoardController {
 	// DB에 저장하기
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public String uploaded(Board board, MultipartFile file) {
+
 		String fileName = FileUploader.upload(file);
 		board.setFileName(fileName);
 		Board certainBoard = boardRepository.save(board);
@@ -55,11 +60,10 @@ public class BoardController {
 	
 	@RequestMapping(value ="/board.json", method = RequestMethod.POST)
 	public @ResponseBody Board straightUpload(Board board, MultipartFile file){
+		log.debug("board: {}", board); // 로그를 찍는 코드
 		String fileName = FileUploader.upload(file);
 		board.setFileName(fileName);
-		System.out.println("/board/board.json으로 들어왔습니다.");
 		return boardRepository.save(board);
-		
 	}
 
 	// Data수정하기

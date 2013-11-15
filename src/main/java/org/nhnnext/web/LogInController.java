@@ -26,7 +26,6 @@ public class LogInController {
 	public String logout(HttpSession session){
 		session.removeAttribute("userId");
 		return "redirect:/";
-		
 	}
 	
 	@RequestMapping(value = "", method = RequestMethod.POST)

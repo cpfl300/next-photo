@@ -132,6 +132,7 @@
 	
 	request.onreadystatechange = function(){
 		if(request.readyState == 4 && request.status ==200){
+			eleForm.reset();
 			var obj = JSON.parse(request.responseText);
 			console.log(obj);
 			var status = eleForm.parentNode.parentNode; //div#;list_wrap
