@@ -216,9 +216,10 @@
 	<div id="list_wrap">
 		<a href="/">HOME</a>
 		<h1>PHOTO LIST</h1>
-
+		
+		<c:choose>
+		<c:when test="${not empty sessionScope.userId}">
 		<h2>QUICK UPLOAD</h2>
-
 		<div id="formArea">
 			<form action="/board" method="post" enctype=multipart/form-data>
 				<label for="title"> photo title: </label> <input type="text"
@@ -230,7 +231,8 @@
 					value="사진올리기">
 			</form>
 		</div>
-
+		</c:when>
+		</c:choose>
 		<!-- 	LIST화면 -->
 
 		<c:forEach var="data" items="${iterator}">
