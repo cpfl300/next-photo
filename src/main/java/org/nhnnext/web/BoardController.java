@@ -53,8 +53,6 @@ public class BoardController {
 		board.setFileName(fileName);
 		Board certainBoard = boardRepository.save(board);
 
-		System.out.println("board: " + board);
-
 		return "redirect:/board/" + certainBoard.getId();
 	}
 	
@@ -101,6 +99,26 @@ public class BoardController {
 
 		boardRepository.delete(id);
 		return "redirect:/";
+	}
+	
+	//XML delete
+	@RequestMapping(value = "/{id}/delete.json", method = RequestMethod.POST)
+	public Object XMLdelete(@PathVariable Long id) {
+		Iterable iter = attachCommentRepository.findAll();
+		Iterator it = iter.iterator();
+		
+		while (it.hasNext()) {
+			AttachComment attcom = (AttachComment) it.next();
+			Long boardNum = attcom.getBoard().getId();
+			
+			if (boardNum.equals(id)) {
+				attachCommentRepository.delete(attcom.getId());;
+			}
+		}
+		
+		boardRepository.delete(id);
+		
+		return null;
 	}
 
 	// 방금 저장한 Date DB에서 가져오기
