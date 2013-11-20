@@ -1,6 +1,9 @@
 package org.nhnnext.web;
 
+import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -135,6 +138,7 @@ public class BoardController {
 	public String list(Model model, Model comModel) {
 
 		Iterable ir = boardRepository.findAll();
+		Collections.reverse((List)ir);
 		model.addAttribute("iterator", ir);
 
 		return "list2";

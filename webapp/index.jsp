@@ -28,10 +28,10 @@
 
 					<c:otherwise>
 						<li><a href="/login/form">LOGIN</a></li>
+						<li><a href="/join/form">JOINUS</a></li>
 
 					</c:otherwise>
 				</c:choose>
-				<li><a href="/join/form">JOINUS</a></li>
 			</ul>
 		</div>
 	</div>

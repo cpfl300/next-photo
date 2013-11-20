@@ -8,6 +8,13 @@
 	ul,ol{list-style:none}
 	em,address{font-style:normal} a{text-decoration:none} a:hover,a:active,a:focus{text-decoration:underline}
 	
+	body{
+	background-image: url(http://cfs8.blog.daum.net/image/18/blog/2009/04/26/15/49/49f403c69b945&filename=1280-3.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	}
+	
 	a{
 	text-decoration: blink;}
 	

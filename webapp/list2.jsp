@@ -16,8 +16,8 @@
 <script>
 	function initPage() {
 		console.log('로딩이 됐슈');
+		
 		countComments();
-
 		registerEvents();
 		XHRorAttachment();
 		XMLForsubmit();
@@ -121,6 +121,7 @@
 
 	//업로드 data 서버에 올리고 바로 뿌려주기
 	function showed(e) {
+		debugger;
 		e.preventDefault();
 		url = '/board/board.json';
 
@@ -136,20 +137,22 @@
 				eleForm.reset();
 				var obj = JSON.parse(request.responseText);
 				console.log(obj);
-				var status = eleForm.parentNode.parentNode; //div#;list_wrap
+				var status = eleForm.parentNode.nextElementSibling; //newest post
 
-				// contant start
-				var contant = "<div class=\"show_wrap\"><div id=\"photo_area\"><div id=\"photo_area\"><a href=\"/board/"+obj.id+"\"><div id=\"title\">"
-						+ obj.title + "</div></a>";
-
+				// content start
+				var contant = "<div class=\"oneContent\"><div class=\"show_wrap\"><div id=\"photo_area\" board_id=\""
+				+obj.id+"\"><a href=\"/board/"+obj.id+"\"><div id=\"title\">"+obj.title+"</div></a><div id=\"image_area\"><div class=\"delButton\"><img src=\"http://bookriot.com/wp-content/uploads/2013/07/x.png\" width=10px height=10px></div><a href=\"/board/"+obj.id+"\"><div id=\"image\">";
+				
 				if (obj.fileName != null) {
-					contant += "<div id=\"image_area\"><a href=\"/board/"+obj.id+"\"><div id=\"image\"><img src=\"/images/"+obj.fileName+"\"></a></div></div>";
+					contant += "<img src=\"/images/"+obj.fileName+"\">";
 				}
-
-				contant += "<div id=\"comment\">"
-						+ obj.comment
-						+ "</div></div><hr><div class=\"commentCounter\">test</div><div class=\"commnets\"><div id=\"commentsArea\">";
-
+				
+				else{
+					contant += "<img src=\"/images/noimage.png\">";
+				}
+								
+				contant += "</div></a></div></div><div id=\"comment\">"+obj.comment+"</div></div><hr><div class=\"commentCounter\">test</div><div class=\"commnets\"><div id=\"commentsArea\">";		
+				
 				if (obj.attachComment != null) {
 					obj.attachComment.forEach(function(comment) {
 						if (comment.id != null) {
@@ -157,21 +160,17 @@
 									+ "</span><br>";
 						}
 					});
-				}
+				}	
+				
+				contant += "</div><hr><form action=\"/board/"+obj.id+"/attachComment\" method=\"post\"><input type=\"hidden\" name=\"id\" value=\""+obj.id+"\"><input type=\"text\" placeholder=\"댓글은 이곳에 적어주세요......\" name=\"attachComment\"><input type=\"submit\" value=\"댓글 달기\"></form><br></div></div>";
+				
+			// content end
+	
 
-				contant += "</div><hr><form action=\"/board/"+obj.id+"/attachComment\" method=\"post\"><input type =\"hidden\" name = \"id\" value = \""+obj.id+"\"><input type=\"text\" placeholder=\"댓글은 이곳에 적어주세요......\"name=\"attachComment\"> <input type=\"submit\" value=\"댓글 달기\"></form><br></div></div>";
+				status.insertAdjacentHTML('beforebegin', contant);
 
-				//content end
+				initPage();
 
-				status.insertAdjacentHTML('beforeend', contant);
-
-				var lastCont = document.getElementsByClassName('show_wrap');
-				var eleCommentList = lastCont[lastCont.length - 1].lastElementChild.lastElementChild.firstElementChild; //commentsArea
-				var nPListCount = eleCommentList.querySelectorAll('span').length;
-				var comCounter = eleCommentList.parentNode.previousElementSibling;
-				comCounter.innerHTML = nPListCount + "개의 댓글이 있습니다";
-				XHRorAttachment(); //댓글이 바로 올려지지 않으므로 여기서 다시 함수호출
-				registerEvents(); // 추가 해야 toggle이 되요!
 			}
 		}
 
@@ -243,19 +242,25 @@
 						<a href="/board/${data.id}">
 							<div id="title">${data.title}</div>
 						</a>
-						<c:if test="${not empty data.fileName}">
 							<div id="image_area">
 								<div class="delButton">
 									<img src="http://bookriot.com/wp-content/uploads/2013/07/x.png"
 										width=10px height=10px>
 								</div>
 								<a href="/board/${data.id}">
+								
 									<div id="image">
+						<c:if test="${not empty data.fileName}">
 										<img src="/images/${data.fileName}">
+						</c:if>
+						
+						<c:if test="${empty data.fileName}">
+										<img src="/images/noimage.png">
+						</c:if>
 									</div>
+									
 								</a>
 							</div>
-						</c:if>
 					</div>
 
 					<div id="comment">${data.comment}</div>

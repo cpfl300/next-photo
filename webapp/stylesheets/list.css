@@ -1,6 +1,11 @@
 @CHARSET "US-ASCII";
-
+body{
+	background-image: url(/images/sakura.png);	
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
 #list_wrap {
+	background-color: rgba(255,255,255,0.7);
 	position: relative;
 	width: 424px;
 	margin-right: auto;
