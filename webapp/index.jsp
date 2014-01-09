@@ -20,7 +20,7 @@
 			<ul>
 				<li><a href="/board/list">LIST</a></li>
 				<c:choose>
-					<c:when test="${not empty sessionScope.userId}">
+					<c:when test="${not empty sessionScope.userEmail}">
 						<li><a href="/board/upload">UPLOAD</a></li>
 						<li><a href="/login/logout">LOGOUT</a></li>
 

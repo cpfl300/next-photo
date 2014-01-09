@@ -12,9 +12,20 @@ public class Member {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@Column(length=50, nullable=false, unique=true)
+	@Column(length=50, nullable=false)
 	private String userId;
 	
+	@Column(length=100, nullable=false, unique=true)
+	private String userEmail;
+
+	public String getUserEmail() {
+		return userEmail;
+	}
+
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
+	}
+
 	public Long getId() {
 		return id;
 	}

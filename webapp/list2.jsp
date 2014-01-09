@@ -121,7 +121,7 @@
 
 	//업로드 data 서버에 올리고 바로 뿌려주기
 	function showed(e) {
-		debugger;
+//		debugger;
 		e.preventDefault();
 		url = '/board/board.json';
 
@@ -179,6 +179,7 @@
 	// List에서 바로 삭제하기
 	// 이미지를 누르면 이벤트가 걸린다.
 	function quickDel() {
+		//debugger;
 		var delIcon = document.getElementsByClassName("delButton");
 		var contents = document.querySelectorAll('.show_wrap');
 		for ( var i = 0; i < contents.length; i++) {
@@ -217,7 +218,7 @@
 		<h1>PHOTO LIST</h1>
 		
 		<c:choose>
-		<c:when test="${not empty sessionScope.userId}">
+		<c:when test="${not empty sessionScope.userEmail}">
 		<h2>QUICK UPLOAD</h2>
 		<div id="formArea">
 			<form action="/board" method="post" enctype=multipart/form-data>

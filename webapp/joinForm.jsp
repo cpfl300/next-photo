@@ -16,6 +16,7 @@
 	<div id = "joinForm">
 		<form action="/join" method="post">
 			<input type="text" name="userId" placeholder="이곳에 ID를 입력하세요"><br> 
+			<input type="text" name="userEmail" placeholder="이곳에 E-mail 입력하세요"><br> 
 			<input type="password" name="password" placeholder="이곳에 password를 입력하세요"><br> 
 			<input type="submit" value="가입하기">
 		</form>

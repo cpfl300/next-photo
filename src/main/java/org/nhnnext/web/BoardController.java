@@ -33,7 +33,7 @@ public class BoardController {
 
 	@RequestMapping("/upload")
 	public String upload(HttpSession session) {
-		if(session.getAttribute("userId")!= null){
+		if(session.getAttribute("userEmail")!= null){
 			
 			return "upload";
 		}
